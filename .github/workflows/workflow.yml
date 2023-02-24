@@ -9,7 +9,7 @@ on:
     branches: [ "master" ]
 
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  workflow_dispatch: 
 
 jobs:
   build:
@@ -36,4 +36,7 @@ jobs:
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: us-east-1
       - name: test aws cli
-        run: aws s3api list-buckets
+        run: | 
+         aws s3api list-buckets 
+         aws s3 cp tdd.py s3://bucket-tdd
+        
